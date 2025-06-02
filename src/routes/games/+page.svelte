@@ -30,18 +30,14 @@
                                     <p class="card-text mb-1">
                                         <strong>Genre:</strong>
                                         <!-- join die einzelnen array objekte mit den (*) dazwischen -->
-                                        {game.genres?.join(", ")}
+                                        {game.genres}
                                     </p>
                                     <p class="card-text mb-1">
                                         <strong>Plattform:</strong>
-                                        {game.platforms?.join(", ")}
-                                    </p>
-                                    <p class="card-text mb-2">
-                                        <strong>Preis:</strong>
-                                        {game.price} CHF
+                                        {game.platforms}
                                     </p>
                                     <span class="badge bg-secondary">
-                                        {game.average_playtime} min</span
+                                        {game.price} CHF</span
                                     >
                                 </div>
 
