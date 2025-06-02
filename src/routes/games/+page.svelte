@@ -36,8 +36,8 @@
                                         {game.genres?.join(", ")}
                                     </p>
                                     <p class="card-text mb-1">
-                                        <strong>Plattform:</strong>
-                                        {game.Platforms?.join(", ")}
+                                        <strong>Entwickler:</strong>
+                                        {game.developer_id}
                                     </p>
                                     <span class="badge bg-secondary">
                                         {game.price} CHF</span

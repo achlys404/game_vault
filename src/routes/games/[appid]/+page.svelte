@@ -5,15 +5,35 @@
 
 {#if game}
 	<div class="container my-5">
-		<h2>{game.name}</h2>
+		<div class="row">
 
-		<p><strong>Genres:</strong> {game.genres?.join(", ")}</p>
-		<p><strong>Plattformen:</strong> {game.platforms?.join(", ")}</p>
-		<p><strong>Preis:</strong> {game.price} CHF</p>
-		<p><strong>Durchschnittliche Spielzeit:</strong> {game.average_playtime} min</p>
-		<p><strong>Publisher:</strong> {game.publisher}</p>
 
-		<a class="btn btn-outline-secondary mt-3" href="/games">Zurück zur Übersicht</a>
+			<div class="col-md-4 mb-3">
+				<img
+					src={`https://picsum.photos/seed/${game.appid}/400/300`}
+					alt="{game.name}"
+					class="img-fluid rounded shadow-sm"
+				/>
+			</div>
+
+
+
+			<div class="col-md-8">
+				<h2>{game.name}</h2>
+
+				<p><strong>Genres:</strong> {game.genres?.join(", ")}</p>
+				<p><strong>Plattformen:</strong> {game.platforms?.join(", ")}</p>
+				<p><strong>Preis:</strong> {game.price} CHF</p>
+				<p><strong>Durchschnittliche Spielzeit:</strong> {game.average_playtime} min</p>
+				<p><strong>Entwickler:</strong> {game.developer_id}</p>
+				<p><strong>Mindestalter:</strong> {game.required_age}</p>
+				<p><strong>Veröffentlichungsdatum:</strong> {game.release_date}</p>
+
+				<a class="btn btn-outline-secondary mt-3" href="/games">
+					Zurück zur Übersicht
+				</a>
+			</div>
+		</div>
 	</div>
 {:else}
 	<div class="container my-5">
