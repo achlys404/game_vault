@@ -1,12 +1,15 @@
 <script>
-	export let data;
+    export let data;
 
-	$: page = +data.page;
-	$: totalPages = +data.totalPages;
-	$: games = data.games;
+    $: page = +data.page;
+    $: totalPages = +data.totalPages;
+    $: games = data.games;
 </script>
 
 <div class="container my-4">
+    <div class="text-end mb-3">
+        <a href="/games/create" class="btn btn-success"> Spiel hinzufügen </a>
+    </div>
     <h1 class="mb-4 text-center">Spiel Übersicht</h1>
 
     <div class="row g-4">

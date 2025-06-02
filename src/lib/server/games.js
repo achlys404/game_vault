@@ -24,11 +24,32 @@ async function getGameByAppid(appid) {
     return cleaned;
 }
 
-// Platzhalter für später:
-async function createGame(game) { /* ... */ }
-async function updateGame(appid, newData) { /* ... */ }
-async function deleteGame(appid) { /* ... */ }
+async function createGame(game) {
+	const collection = db.collection('Game');
+	await collection.insertOne(game);
+}
 
+async function updateGame(appid, newData) {
+	const collection = db.collection('Game');
+	await collection.updateOne({ appid: parseInt(appid) }, { $set: newData });
+}
+async function deleteGame(appid) {
+	try {
+		const collection = db.collection('Game');
+		const result = await collection.deleteOne({ appid: parseInt(appid) });
+
+		if (result.deletedCount === 0) {
+			console.warn(`Kein Spiel mit appid ${appid} gefunden.`);
+			return false;
+		}
+
+		console.log(`Spiel mit appid ${appid} wurde gelöscht.`);
+		return true;
+	} catch (error) {
+		console.error('Fehler beim Löschen des Spiels:', error);
+		return false;
+	}
+}
 export default {
     getGames,
     getGameByAppid,
