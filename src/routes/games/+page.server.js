@@ -1,3 +1,6 @@
+
+export const prerender = false;
+export const csr = false;
 import db from '$lib/server/db.js';
 
 export async function load({ url }) {
