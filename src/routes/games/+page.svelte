@@ -1,15 +1,16 @@
 <script>
-    export let data;
-    const page = +data.page;
-    const totalPages = +data.totalPages;
-    const games = data.games;
+	export let data;
+
+	$: page = +data.page;
+	$: totalPages = +data.totalPages;
+	$: games = data.games;
 </script>
 
 <div class="container my-4">
     <h1 class="mb-4 text-center">Spiel Übersicht</h1>
 
     <div class="row g-4">
-        {#each data.games as game}
+        {#each games as game}
             <div class="col-12 col-md-6">
                 <div class="card h-100 shadow-sm">
                     <div class="row g-0">
