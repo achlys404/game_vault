@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-    <a class="navbar-brand" href="/">🎮 GameVault</a>
+    <a class="navbar-brand" href="/">GameVault</a>
     <button
         class="navbar-toggler"
         type="button"
@@ -17,7 +17,7 @@
                 <a class="nav-link" href="/games">Spiele</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/developers">Entwickler - tbd</a>
+                <a class="nav-link" href="/developers">Entwickler</a>
             </li>
         </ul>
     </div>
