@@ -1,5 +1,4 @@
 <script>
-  export let data;
 </script>
 
 <div class="container my-5">
@@ -7,7 +6,7 @@
 
   <form method="POST">
     <div class="mb-3">
-      <label for="appid" class="form-label">App ID</label>
+      <label for="appid" class="form-label">App ID*</label>
       <input type="number" class="form-control" id="appid" name="appid" required />
     </div>
 

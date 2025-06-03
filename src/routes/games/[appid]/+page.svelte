@@ -27,7 +27,12 @@
 					<strong>Durchschnittliche Spielzeit:</strong>
 					{game.average_playtime} min
 				</p>
-				<p><strong>Entwickler:</strong> {game.developer}</p>
+				<p>
+					<strong>Entwickler:</strong>
+					<a href={`/developers/${game.developer_id}`}
+						>{game.developer}</a
+					>
+				</p>
 				<p><strong>Mindestalter:</strong> {game.required_age}</p>
 				<p>
 					<strong>Veröffentlichungsdatum:</strong>
@@ -43,15 +48,18 @@
 				<a class="btn btn-outline-secondary mt-3" href="/games">
 					Zurück zur Übersicht
 				</a>
-				
-				<form method="POST"
+
+				<form
+					method="POST"
 					action="?/delete"
 					on:submit={() =>
 						confirm("Willst du dieses Spiel wirklich löschen?") ||
-						event.preventDefault()}>
-					<button type="submit" class="btn btn-danger mt-3">Spiel löschen</button>
+						event.preventDefault()}
+				>
+					<button type="submit" class="btn btn-danger mt-3"
+						>Spiel löschen</button
+					>
 				</form>
-
 			</div>
 		</div>
 	</div>
