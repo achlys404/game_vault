@@ -27,7 +27,7 @@
 					<strong>Durchschnittliche Spielzeit:</strong>
 					{game.average_playtime} min
 				</p>
-				<p><strong>Entwickler:</strong> {game.developer_id}</p>
+				<p><strong>Entwickler:</strong> {game.developer}</p>
 				<p><strong>Mindestalter:</strong> {game.required_age}</p>
 				<p>
 					<strong>Veröffentlichungsdatum:</strong>

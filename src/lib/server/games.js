@@ -7,7 +7,15 @@ async function getGames(page = 1, limit = 20) {
 	const games = await collection.find().skip(skip).limit(limit).toArray();
 	const total = await collection.countDocuments();
 
-	const cleanedGames = games.map(({ _id, ...rest }) => rest);
+	// Entwicklernamen für alle Spiele auflösen
+	const devMap = {};
+	const developers = await db.collection('Developer').find().toArray();
+	developers.forEach(dev => devMap[dev.developer_id] = dev.developer);
+
+	const cleanedGames = games.map(({ _id, ...rest }) => ({
+		...rest,
+		developer: devMap[rest.developer_id] || `Unbekannt (ID ${rest.developer_id})`
+	}));
 
 	return {
 		games: cleanedGames,
@@ -17,12 +25,19 @@ async function getGames(page = 1, limit = 20) {
 }
 
 async function getGameByAppid(appid) {
-    const game = await db.collection('Game').findOne({ appid: parseInt(appid) });
-    if (!game) return null;
+	const game = await db.collection('Game').findOne({ appid: parseInt(appid) });
+	if (!game) return null;
 
-    const { _id, ...cleaned } = game;
-    return cleaned;
+	// Entwickler anhand der developer_id laden
+	const developer = await db.collection('Developer').findOne({ developer_id: game.developer_id });
+
+	const { _id, ...rest } = game;
+	return {
+		...rest,
+		developer: developer?.developer || `Unbekannt (ID ${game.developer_id})`
+	};
 }
+
 
 async function createGame(game) {
 	const collection = db.collection('Game');

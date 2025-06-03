@@ -40,7 +40,7 @@
                                     </p>
                                     <p class="card-text mb-1">
                                         <strong>Entwickler:</strong>
-                                        {game.developer_id}
+                                        {game.developer}
                                     </p>
                                     <span class="badge bg-secondary">
                                         {game.price} CHF</span
