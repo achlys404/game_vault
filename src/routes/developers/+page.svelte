@@ -24,7 +24,7 @@
 		{#each columns as column}
 			<div class="col-md-4">
 				<ul class="list-group mb-4">
-					{#each developers as dev}
+					{#each column as dev}
 						<DeveloperListItem developer={dev} />
 					{/each}
 				</ul>
